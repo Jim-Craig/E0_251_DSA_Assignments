@@ -3,13 +3,13 @@ public class Assignment1 {
 		// TODO Auto-generated method stub
 		MaxHeap heap = new MaxHeap(10);
 		try {
-			heap.add(10);
 			heap.add(50);
+			heap.add(40);
 			heap.add(30);
-			heap.add(100);
+			heap.add(10);
 			heap.add(20);
+			heap.add(5);
 			heap.DeleteMax();
-			heap.add(80);
 			System.out.println(heap.ReturnMax());
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -110,7 +110,7 @@ class MaxHeap {
 	 * @return
 	 */
 	private int rightChild(int index) {
-		int rightIndex = (2*index + 1 < this.currentSize) ? 2*index + 1 : sentinel2;
+		int rightIndex = (2*index + 1 <= this.currentSize) ? 2*index + 1 : sentinel2;
 		return rightIndex;
 	}
 	
