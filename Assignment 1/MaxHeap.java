@@ -53,7 +53,7 @@ class MaxHeap {
 	 * @throws HeapFullException 
 	 */
 	public void add(int number) throws HeapFullException {
-		if(this.currentSize <= arrayLength) {
+		if(this.currentSize < arrayLength) {
 		int destinationIndex = ++ this.currentSize;
 		arr[destinationIndex] = number;
 		heapifyHeap(destinationIndex);
