@@ -1,9 +1,16 @@
 public class Assignment1 {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		MaxHeap heap = new MaxHeap(100);
+		MaxHeap heap = new MaxHeap(10);
 		try {
+			heap.add(10);
+			heap.add(50);
+			heap.add(30);
+			heap.add(100);
+			heap.add(20);
 			heap.DeleteMax();
+			heap.add(80);
+			System.out.println(heap.ReturnMax());
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -22,6 +29,7 @@ class MaxHeap {
 	 * @param n
 	 */
 	public MaxHeap(int n) {
+		n += 2;
 		this.arr = new int[n];
 		this.arr[0] = Integer.MAX_VALUE;
 		this.sentinel2 = n-1;
@@ -46,7 +54,7 @@ class MaxHeap {
 	 */
 	public void add(int number) throws HeapFullException {
 		if(this.currentSize <= arrayLength) {
-		int destinationIndex = this.currentSize ++;
+		int destinationIndex = ++ this.currentSize;
 		arr[destinationIndex] = number;
 		heapifyHeap(destinationIndex);
 		} else {
@@ -130,7 +138,7 @@ class MaxHeap {
 		int maxChildIndex = arr[leftChild(index)] > arr[rightChild(index)] 
 				? leftChild(index) : rightChild(index);
 		
-		while (arr[index] > arr[maxChildIndex]) {
+		while (arr[index] < arr[maxChildIndex]) {
 			swap(index, maxChildIndex);
 			index = maxChildIndex;
 			maxChildIndex = arr[leftChild(index)] > arr[rightChild(index)] 
